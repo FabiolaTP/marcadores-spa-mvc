@@ -1,6 +1,20 @@
-import { components} from '../view/index.js';
+import { modelo } from '../model/index.js'
+import { components, vista} from '../view/index.js';
 
 export const controlador = {
+  init: () => {
+    vista.init()
+  },
+
+  agregarMarcador: (nuevomarcador) => {
+    modelo.agregaMarcador(nuevomarcador) 
+    vista.representarMarcadores(); 
+  }, 
+
+  obtenerMarcadores:() => {
+    return modelo.obtenerMarcadores();
+  },
+
   changeTmp: (hash) => {
     // const id = hash.split('/')[1];
     const sectionMain = document.getElementById('container');
